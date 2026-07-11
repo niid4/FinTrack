@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Expanded state of the categorize notification, styled after the reference:
+       ₹[amount] to [payee]
+       [source] • just now
+       [time]
+       What's this for?
+       [Personal] [Rent] [Friend] [Gift]        <- quick picks (max 4)
+       [Food] [Shopping] [Transport] [Bills]    <- categories (max 4)
+       Skip        Remind Me Later        Other
+
+     RemoteViews constraints: rows are fixed LinearLayouts with exactly 4
+     equal-width pill slots (extra slots are hidden at runtime). No dynamic
+     wrapping — RemoteViews can't measure/flow chips the way Flutter's Wrap
+     does, so the layout is intentionally rigid. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="4dp"
+    android:paddingBottom="2dp">
+
+    <TextView
+        android:id="@+id/notif_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/notif_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Line2"
+        android:textSize="12sp"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/notif_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Line2"
+        android:textSize="12sp"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/notif_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="What's this for?"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Line2"
+        android:textSize="12sp" />
+
+    <!-- Row 1: quick picks (Personal / Rent / Friend / Gift). Max 4. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/quick_pick_1"
+            style="@style/NotifPillSolid" />
+
+        <TextView
+            android:id="@+id/quick_pick_2"
+            style="@style/NotifPillSolid" />
+
+        <TextView
+            android:id="@+id/quick_pick_3"
+            style="@style/NotifPillSolid" />
+
+        <TextView
+            android:id="@+id/quick_pick_4"
+            style="@style/NotifPillSolid" />
+    </LinearLayout>
+
+    <!-- Row 2: categories (Food / Shopping / Transport / Bills). Max 4. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/category_1"
+            style="@style/NotifPillOutline" />
+
+        <TextView
+            android:id="@+id/category_2"
+            style="@style/NotifPillOutline" />
+
+        <TextView
+            android:id="@+id/category_3"
+            style="@style/NotifPillOutline" />
+
+        <TextView
+            android:id="@+id/category_4"
+            style="@style/NotifPillOutline" />
+    </LinearLayout>
+
+    <!-- Bottom row: Skip | Remind Me Later | Other -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/action_skip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="Skip"
+            android:textAppearance="@style/TextAppearance.Compat.Notification.Title"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/action_remind"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="Remind Me Later"
+            android:textAppearance="@style/TextAppearance.Compat.Notification.Title"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/action_other"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end|center_vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="Other"
+            android:textAppearance="@style/TextAppearance.Compat.Notification.Title"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Solid white pill used for the quick-pick row (Personal / Rent / Friend / Gift),
+     matching the reference notification. Fixed shape — RemoteViews can't do
+     dynamic chip wrapping, so rows are hard-capped at 4 equal-width pills. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#FFFFFF" />
+    <corners android:radius="24dp" />
+</shape>
